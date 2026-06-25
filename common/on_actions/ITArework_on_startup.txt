@@ -1,0 +1,19 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			SIC = {
+				every_core_state = {
+					add_dynamic_modifier = { modifier = SRI_mafiosos }
+				}
+			}
+			SRI = {
+				SIC = {
+					every_core_state = {
+						set_resistance = 15
+					}
+				}
+			}
+			115 = { add_resistance = 10 }
+		}
+	}
+}

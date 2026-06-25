@@ -1,0 +1,244 @@
+ITA_elections_in_italy_cat = {
+	ITA_1937_elections_mission = {
+		name = "Italian General Elections Called"
+		days_mission_timeout = 400
+		fire_only_once = yes
+		allowed = { tag = ITA }
+		priority = 1
+		available = {
+			always = no
+		}
+		ai_will_do = {
+        	factor = 90
+    	}
+		activation = {
+			always = yes
+		}
+		timeout_effect = {
+
+		}
+	}
+	ITA_campaign_PPI = {
+		name = "Campaign for the PPI"
+		fire_only_once = yes
+		allowed = { tag = ITA }
+		priority = 10
+		available = {
+			always = no
+		}
+		ai_will_do = {
+        	factor = 90
+    	}
+		timeout_effect = {
+
+		}
+	}
+	ITA_campaign_ANI = {
+		name = "Campaign for the ANI"
+		fire_only_once = yes
+		allowed = { tag = ITA }
+		priority = 10
+		available = {
+			always = no
+		}
+		ai_will_do = {
+        	factor = 90
+    	}
+		timeout_effect = {
+
+		}
+	}
+}
+
+political_actions = {
+	SRI_cross_the_po = {
+		fire_only_once = yes
+		allowed = {
+			tag = SRI
+		}
+		activation = {
+			always = no
+		}
+		available = {
+			always = no
+		}
+		priority = 200
+		days_mission_timeout = 300
+		timeout_effect = {
+			add_war_support = 0.1
+			add_political_power = 100
+			add_threat = 5
+			declare_war_on = {
+				target = ITA
+				type = annex_everything
+			}
+		}
+	}
+}
+
+SRI_fight_mafia_cat = {
+	SRI_mafia_eradication = {
+		name = "Combat the Mafia in [FROM.GetName]"
+  	 	allowed = { tag = SRI }
+		state_target = yes
+		target_array = ROOT.owned_states
+    	target_trigger = {
+       		FROM = {
+				is_core_of = ROOT
+				is_owned_by = ROOT
+				has_dynamic_modifier = { modifier = SRI_mafiosos }	
+        	}
+    	}
+		icon = GFX_decision_oppression
+		ai_will_do = {
+			factor = 450
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment > 2500
+			}
+			has_manpower > 1500
+			has_political_power > 20
+		}
+		custom_cost_text = SRI_MafiaDecCost
+		modifier = { stability_weekly = -0.005 }
+		complete_effect = {
+			add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -2500
+            }
+			add_manpower = -1500
+			add_political_power = -20
+		}
+    	days_remove = 25
+    	remove_effect = {
+			random_list = {
+				60 = {
+					add_stability = -0.01
+				}
+				SRI.chancevariable = {
+        			FROM = { remove_dynamic_modifier = { modifier = SRI_mafiosos } }
+				}
+			}
+    	}
+	}
+	ITA_sicilian_martial_law = {
+		name = "Extend Military Policing in the South"
+  	 	allowed = { tag = SRI }
+		visible = { 
+       		any_owned_state = {
+				has_dynamic_modifier = { modifier = SRI_mafiosos }	
+        	}
+			SIC = {
+				every_core_state = {
+					is_core_of = SRI	
+				}
+			}
+    	}
+		cost = 40
+		priority = 100
+		icon = GFX_decision_eng_blackshirt_march
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_war = no
+		}
+		days_re_enable = 15
+		modifier = {
+			army_org_factor = -0.5
+			consumer_goods_factor = 0.15
+			weekly_manpower = 100
+		}
+    	days_remove = 40
+    	remove_effect = {
+			add_to_variable =  {
+				var = SRI.chancevariable
+				value = 10
+				tooltip = tt_SRIraisechance
+			}
+    	}
+	}
+}
+
+SRD_southern_infiltration_cat = {
+	SRD_contact_the_mafia_in = {
+		name = "Contact the Mafia in [FROM.GetName]"
+  	 	allowed = { tag = SRD }
+		state_target = yes
+		target_array = SRI.owned_states
+		days_re_enable = 10
+    	target_trigger = {
+       		FROM = {
+				is_owned_by = SRI
+				NOT = { is_core_of = SRI }
+				has_dynamic_modifier = { modifier = SRI_mafiosos }	
+        	}
+			check_variable = {
+				var = southern_infiltration_turns
+				value = 15
+				compare = less_than_or_equals
+			}
+    	}
+		ai_will_do = {
+			factor = 100
+		}
+		icon = GFX_decision_generic_political_discourse
+		cost = 20
+		days_remove = 30
+		remove_effect = {
+			FROM = {
+				add_to_variable = {
+					var = south_resist_mod value = 0.05 
+					tooltip = tt_add_5_resistance_growth
+				}
+				add_to_variable = {
+					var = south_compliance_mod value = -0.05
+					tooltip = tt_subtract_5_compliance_growth
+				}
+				add_resistance_target = 5
+				add_to_variable = { state_rebel_chance = 1 }
+			}
+			add_to_variable = { var = southern_infiltration_turns value = 1 }
+		}
+	}
+
+	SRD_support_catholic_action_in = {
+		name = "Support Catholic Action in [FROM.GetName]"
+  	 	allowed = { tag = SRD }
+		state_target = yes
+		target_array = SRI.owned_states
+    	target_trigger = {
+       		FROM = {
+				is_owned_by = SRI
+				has_dynamic_modifier = { modifier = SRI_mafiosos }	
+        	}
+			check_variable = {
+				var = southern_infiltration_turns
+				value = 15
+				compare = less_than_or_equals
+			}
+    	}
+		ai_will_do = {
+			factor = 100
+		}
+		icon = GFX_decision_generic_civil_support
+		cost = 20
+		days_re_enable = 10
+		days_remove = 30
+		remove_effect = {
+			FROM = {
+				add_to_variable = {
+					var = south_enemy_supply_mod value = 0.05 
+					tooltip = tt_add_5_enemy_supply
+				}
+				add_to_variable = {
+					var = south_enemy_attrit_mod value = -0.05
+					tooltip = tt_subtract_5_enemy_attrit
+				}
+				add_to_variable = { state_rebel_chance = 1 }
+			}
+			add_to_variable = { var = southern_infiltration_turns value = 1 }
+		}
+	}
+}

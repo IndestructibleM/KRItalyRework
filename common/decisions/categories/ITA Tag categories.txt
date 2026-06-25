@@ -1,0 +1,23 @@
+ITA_elections_in_italy_cat = {
+	allowed = { tag = ITA }
+}
+
+SRI_fight_mafia_cat = {
+	allowed = { 
+		tag = SRI
+	}
+	visible = {
+		has_completed_focus = SRI_crush_the_criminal_web
+	}
+	icon = GFX_decision_category_eng_move_to_secure_the_dominions
+}
+
+SRD_southern_infiltration_cat = {
+	allowed = { 
+		tag = SRD
+	}
+	visible = {
+		has_completed_focus = SRD_secure_the_government
+	}
+	#icon = GFX_decision_category_eng_move_to_secure_the_dominions
+}

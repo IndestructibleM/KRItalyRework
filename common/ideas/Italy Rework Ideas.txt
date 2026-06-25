@@ -1,0 +1,128 @@
+ideas = {
+	country = {
+		SRI_internal_resistance = {
+			allowed = { always = no }
+			on_add = {
+				SIC = {
+					every_core_state = {
+						add_dynamic_modifier = { modifier = SRI_mafiosos }
+					}
+				}
+			}
+			picture = PAP_tenth_crusade
+			modifier = {
+				compliance_growth = -0.1
+				resistance_target = 0.15
+				stability_factor = -0.2
+				conscription_factor = -0.15
+				paternal_autocrat_drift = 0.03
+				war_support_factor = -0.1
+			}
+		}
+		SRI_internal_resistance_2 = {
+			allowed = { always = no }
+			picture = PAP_tenth_crusade
+			modifier = {
+				compliance_growth = -0.1
+				resistance_target = 0.1
+				stability_factor = -0.125
+				conscription_factor = -0.1
+				paternal_autocrat_drift = 0.01
+				war_support_factor = -0.05
+			}
+		}
+		SRI_disorganized_red_brigades = {
+			allowed = { always = no }
+			picture = HOL_unionized_military
+			modifier = {
+				army_org_factor = -0.25
+				army_defence_factor = -0.1
+				breakthrough_factor = -0.1
+				experience_gain_army_factor = -0.4
+				max_planning_factor = -0.25
+			}
+		}
+		SRI_disorganized_red_brigades_2 = {
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = -0.15
+				army_defence_factor = -0.1
+				breakthrough_factor = -0.1
+				experience_gain_army_factor = -0.2
+			}
+		}
+		SRI_disorganized_red_brigades_3 = {
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = -0.15
+				army_defence_factor = -0.05
+				breakthrough_factor = -0.05
+			}
+		}
+		SRI_linguistically_confused = {
+			allowed = { always = no }
+			picture = generic_disjointed_gov
+			modifier = {
+				political_power_factor = -0.05
+				army_morale_factor = -0.1
+				research_speed_factor = -0.1
+				conscription_factor = -0.1
+			}
+		}
+
+		SRI_linguistically_confused_2 = {
+			allowed = { always = no }
+			picture = generic_disjointed_gov
+			modifier = {
+				political_power_factor = -0.02
+				army_morale_factor = -0.05
+				conscription_factor = -0.07
+				research_speed_factor = -0.05
+			}
+		}
+
+		SRI_squadristi_violence = {
+			name = "Squadristi Violence"
+			allowed = { always = no }
+			modifier = {
+				political_power_cost = 0.1
+				stability_factor = -0.1
+				totalist_drift = 0.03
+			}
+		}
+
+		SRI_standard_language_reform = {
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = -0.05
+				consumer_goods_expected_value = 0.05
+			}
+			on_remove = {
+				remove_ideas = SRI_linguistically_confused_2
+			}
+		}
+
+		SRI_southern_counterinsurgency = {
+			allowed = { always = no }
+			modifier = {
+				compliance_growth = 0.05
+				resistance_activity = -0.35
+				resistance_decay = 0.1
+				root_out_resistance_effectiveness_factor = 0.2
+			}
+		}
+
+		####################
+		### ITA REPUBLIC ###
+		####################
+
+		ITA_militarized_carabinieri = {
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.01
+				army_morale_factor = 0.05
+				resistance_target = -0.1
+			}
+		}
+	}
+}
