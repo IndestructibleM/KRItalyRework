@@ -1,4 +1,4 @@
-capital = 158
+capital = 2
 oob = "SRI"
 set_naval_oob = "SRD_naval"
 set_research_slots = 3
