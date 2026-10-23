@@ -156,7 +156,9 @@ set_popularities = {
 }
 
 give_guarantee = ITA
-ITA = { give_guarantee = SRD }
+give_military_access = ITA
+ITA = { give_guarantee = SRD give_military_access = SRD }
+
 
 # SRD_attack_italy
 activate_targeted_decision = { target = ITA decision = SRD_attack_italy }
@@ -167,7 +169,6 @@ activate_targeted_decision = { target = EMI decision = SRD_attack_italy }
 activate_targeted_decision = { target = TUS decision = SRD_attack_italy }
 activate_targeted_decision = { target = LOM decision = SRD_attack_italy }
 
-NFA = { give_guarantee = SRD }
 
 ### Country Leaders ###
 recruit_character = SRD_amedeo_aosta

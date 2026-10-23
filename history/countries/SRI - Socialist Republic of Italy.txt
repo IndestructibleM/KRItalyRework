@@ -223,11 +223,10 @@ country_event = { id = socialist_italy_events.103 days = 1906 }
 country_event = { id = socialist_italy_events.105 days = 3000 }
 country_event = { id = socialist_italy_events.109 days = 1247 }
 
-country_event = { id = socialist_italy_events.3 days = 100 }
 
 set_politics = {
-	ruling_party = syndicalist
-	last_election = "1931.3.15"
+	ruling_party = totalist
+	last_election = "1935.3.15"
 	election_frequency = 60
 	elections_allowed = yes
 }
@@ -238,19 +237,32 @@ set_party_name = {
 }
 
 set_party_name = {
-	ideology = social_liberal
-	name = SRI_social_liberal_party_2
+	ideology = social_conservative
+	name = SRI_social_conservative_party_2
 }
+
+set_party_name = {
+	ideology = national_populist
+	name = SRI_national_populist_party_2
+	long_name = SRI_national_populist_party_2_long
+}
+
+set_party_name = {
+	ideology = social_democrat
+	name = SRI_social_democrat_party_2
+	long_name = SRI_social_democrat_party_2_long
+}
+
 set_popularities = {
-	totalist = 18
-	syndicalist = 29
+	totalist = 24
+	syndicalist = 23
 	radical_socialist = 19
 	social_democrat = 9
 	social_liberal = 6
 	market_liberal = 2
 	social_conservative = 8
-	authoritarian_democrat = 2
-	paternal_autocrat = 6
+	authoritarian_democrat = 4
+	paternal_autocrat = 4
 	national_populist = 1
 }
 

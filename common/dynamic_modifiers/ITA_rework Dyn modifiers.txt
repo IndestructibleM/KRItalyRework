@@ -2,7 +2,7 @@ SRI_mafiosos = {
 	remove_trigger = {
 		NOT = { is_owned_by = SRI }
 	}
-	icon = GFX_generic_guerilla_base
+	icon = GFX_modifiers_ITA_established_mafia
 	local_building_slots_factor = -0.25
 	local_manpower = -0.5
 	state_production_speed_buildings_factor = -0.5
@@ -11,5 +11,12 @@ SRI_mafiosos = {
 	compliance_growth = south_compliance_mod
 	enemy_local_supplies = south_enemy_supply_mod
 	enemy_attrition = south_enemy_attrit_mod
+}
+
+SRI_papacy = {
+	icon = GFX_generic_guerilla_base
+	local_manpower = -0.1
+	state_production_speed_buildings_factor = -0.25
+	local_buildings_factor = -0.1
 }
 

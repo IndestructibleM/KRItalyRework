@@ -204,7 +204,7 @@ add_ideas = {
 ### Country Leaders ###
 recruit_character = ITA_costanzo_ciano
 recruit_character = ITA_gian_galeazzo_ciano
-recruit_character = ITA_arturo_michelini
+recruit_character = VNC_giuseppe_volpi
 recruit_character = ITA_emilio_de_bono
 recruit_character = ITA_giovanni_gronchi
 recruit_character = ITA_luigi_einaudi

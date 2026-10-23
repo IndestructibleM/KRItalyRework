@@ -199,6 +199,7 @@ SRD_southern_infiltration_cat = {
 				add_resistance_target = 5
 				add_to_variable = { state_rebel_chance = 1 }
 			}
+			custom_effect_tooltip = tt_add_1_state_rebel_chance
 			add_to_variable = { var = southern_infiltration_turns value = 1 }
 		}
 	}
@@ -238,7 +239,86 @@ SRD_southern_infiltration_cat = {
 				}
 				add_to_variable = { state_rebel_chance = 1 }
 			}
+			custom_effect_tooltip = tt_add_1_state_rebel_chance
 			add_to_variable = { var = southern_infiltration_turns value = 1 }
+		}
+	}
+}
+
+Italy_civil_war_cat = {
+	Italy_raise_manpower = {
+		name = Italy_raise_manpower
+		allowed = { is_italian_tag = yes }
+		priority = 10
+		available = {
+			has_war = yes
+			NOT = { has_decision = Italy_raise_supplies }
+		}
+		days_re_enable = 30
+		ai_will_do = {
+        	factor = 80
+    	}
+		cost = 25
+		days_remove = 35
+		modifier = {
+			weekly_manpower = 1000
+			political_power_cost = 0.15
+			training_time_army_factor = 0.3
+		}
+		remove_effect = {
+			add_manpower = 1000
+		}
+	}
+	Italy_raise_supplies = {
+		name = Italy_raise_supplies
+		allowed = { is_italian_tag = yes }
+		priority = 10
+		available = {
+			has_war = yes
+			NOT = { has_decision = Italy_raise_manpower }
+		}
+		days_re_enable = 30
+		ai_will_do = {
+        	factor = 80
+    	}
+		cost = 25
+		days_remove = 35
+		modifier = {
+			supply_consumption_factor = -0.15
+			no_supply_grace = 72
+			attrition = -0.15
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 15
+				producer = ROOT
+			}
+		}
+	}
+	Italy_target_SRI = {
+		name = Italy_target_SRI
+		allowed = { 
+			or = {
+				tag = SRD
+				tag = ITA
+			}
+		}
+		targets = { SRI }
+		priority = 12
+		available = {
+			has_war = yes
+		}
+		cost = 20
+		days_re_enable = 50
+		ai_will_do = {
+        	factor = 100
+    	}
+		days_remove = 60
+		targeted_modifier = {
+			tag = SRI    # this can also take a variable that stores a scope
+			attack_bonus_against = 0.2
+			defense_bonus_against = 0.1
 		}
 	}
 }

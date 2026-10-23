@@ -12,8 +12,7 @@ country_event = {
 	trigger = {
 		tag = SRI
 		has_character = SRI_alceste_de_ambris
-		date > 1937.2.4
-		has_completed_focus = SRI_the_fragile_coalition
+		date > 1936.12.1
 	}
 
 	option = {
@@ -24,7 +23,6 @@ country_event = {
 			ideology = totalist
 			popularity = 0.05
 		}
-		unlock_national_focus = SRI_death_of_de_ambris
 	}
 }
 
@@ -40,20 +38,17 @@ country_event = { # Mussolini Fuses Posts
 
 	option = {
 		name = sri_rework.2.a
-		add_popularity = {
-			ideology = totalist
-			popularity = 0.075
-		}
 		set_politics = {
 			ruling_party = totalist
 			elections_allowed = no
 		}
+		activate_mission = SRI_cross_the_po
 		set_power_balance = {
-			id = SRI_power_balance
-			left_side = SRI_syndie_side
-			right_side = SRI_totalist_side
+			id = SRI_the_final_act
+			left_side = SRI_unions_side
+			right_side = SRI_fascists_side
 			set_default = yes
-			initial_value = 0.3
+			initial_value = 0.25
 		}
 	}
 }
@@ -85,6 +80,11 @@ state_event = { # Southern States Flip to SRD
 				has_war_with = SRD
 			}
 			to_state_array = owned_controlled_states
+		}
+		create_unit = {
+			division = "name = \"Divisione Fanteria\" division_template = \"Divisione Fanteria\" start_experience_factor = 0.25"
+			owner = SRD
+			count = 2
 		}
 	}
 }

@@ -13,7 +13,6 @@ on_actions = {
 					}
 				}
 			}
-			115 = { add_resistance = 10 }
 		}
 	}
 }

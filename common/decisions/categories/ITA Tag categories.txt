@@ -17,7 +17,20 @@ SRD_southern_infiltration_cat = {
 		tag = SRD
 	}
 	visible = {
-		has_completed_focus = SRD_secure_the_government
+		#has_completed_focus = SRD_secure_the_government
 	}
 	#icon = GFX_decision_category_eng_move_to_secure_the_dominions
+}
+
+Italy_civil_war_cat = {
+	allowed = {
+		OR = {
+			tag = SRD
+			tag = ITA
+			tag = SRI
+		}
+	}
+	visible = {
+		has_war_with_italian_tag = yes
+	}
 }

@@ -27,7 +27,7 @@ focus_tree = {
 		cost = 6
 		available = {
 			has_socialist_government = yes
-			has_country_flag = SRI_1936_elections_held
+			has_idea = SRI_broken_orthodoxy
 		}
 		ai_will_do = { factor = 1000 }
 		completion_reward = {
@@ -75,6 +75,7 @@ focus_tree = {
 		prerequisite = { focus = SRI_deploy_army_commissars } 
 		icon = GFX_goal_nested_fortifications
 		cost = 5
+		ai_will_do = { factor = 100 }
 		completion_reward = {
 			115 = {
 				add_extra_state_shared_building_slots = 1
@@ -179,6 +180,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 5
+		ai_will_do = { factor = 100 }
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = SRI_internal_resistance
@@ -229,7 +231,7 @@ focus_tree = {
 		relative_position_id = SRI_the_fragile_coalition
 		prerequisite = { focus = SRI_language_unification_reform }
 		icon = GFX_goal_KTG_Educate_natives
-		x = -2
+		x = -1
 		y = 3
 		cost = 6
 		ai_will_do = { factor = 100 }
@@ -251,6 +253,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		cost = 5
+		ai_will_do = { factor = 100 }
 		completion_reward = {
 			add_timed_idea = {
 				idea = SRI_southern_counterinsurgency
@@ -304,24 +307,9 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SRI_death_of_de_ambris
-		relative_position_id = SRI_the_fragile_coalition
-		prerequisite = { focus = SRI_national_reconstruction_program }
-		icon = GFX_focus_PRC_stoke_the_flames
-		x = 0
-		y = 3
-		cost = 2
-		available = {
-			always = no
-		}
-		completion_reward = {
-		}
-	}
-
-	focus = {
 		id = SRI_merge_the_posts_of_chairman_and_president
 		relative_position_id = SRI_the_fragile_coalition
-		prerequisite = { focus = SRI_death_of_de_ambris }
+		prerequisite = { focus = SRI_national_reconstruction_program }
 		icon = GFX_focus_ITA_capo_supremo
 		x = 0
 		y = 4
@@ -335,10 +323,13 @@ focus_tree = {
 				ruling_only = yes
 			}
 		}
-		ai_will_do = { factor = 500 }
+		ai_will_do = { factor = 800 }
 		completion_reward = {
 			country_event = { id = sri_rework.2 days = 0 }
-			activate_mission = SRI_cross_the_po
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.05
+			}
 			add_stability = 0.05
 		}
 	}
@@ -352,6 +343,7 @@ focus_tree = {
 		x = 2
 		y = 3
 		cost = 5
+		ai_will_do = { factor = 100 }
 		completion_reward = {
 			SRI = {
 				SIC = {
@@ -368,7 +360,7 @@ focus_tree = {
 
 	focus = {
 		id = SRI_revisit_the_vatican_question
-		x = 7
+		x = 8
 		y = 0
 		cost = 4
 		available = {
@@ -517,7 +509,6 @@ focus_tree = {
 	}
 
 	### Radsoc Path ###
-
 	focus = {
 		id = SRI_in_a_time_of_monsters
 		x = -11
@@ -532,9 +523,21 @@ focus_tree = {
 		icon = GFX_focus_ITA_il_sol_dell_avvenire
 		available = {
 			has_government = radical_socialist
-			always = no
+			has_country_flag = SRI_path_decided
 		}
 		cost = 2
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = SRI_the_war_of_ideas
+		relative_position_id = SRI_in_a_time_of_monsters
+		prerequisite = { focus = SRI_in_a_time_of_monsters }
+		icon = GFX_goal_Communist_Discourse
+		x = -5
+		y = 1
+		cost = 6
 		completion_reward = {
 		}
 	}
@@ -544,7 +547,7 @@ focus_tree = {
 		relative_position_id = SRI_in_a_time_of_monsters
 		prerequisite = { focus = SRI_in_a_time_of_monsters }
 		icon = GFX_focus_NORDIC_com_institution_1
-		x = -4
+		x = -3
 		y = 1
 		cost = 6
 		completion_reward = {
@@ -556,7 +559,7 @@ focus_tree = {
 		relative_position_id = SRI_in_a_time_of_monsters
 		prerequisite = { focus = SRI_in_a_time_of_monsters }
 		icon = GFX_focus_generic_worker_administration
-		x = -2
+		x = -1
 		y = 1
 		cost = 6
 		completion_reward = {
@@ -568,7 +571,7 @@ focus_tree = {
 		relative_position_id = SRI_in_a_time_of_monsters
 		prerequisite = { focus = SRI_in_a_time_of_monsters }
 		icon = GFX_focus_generic_workers_and_farmers_rise
-		x = 0
+		x = 1
 		y = 1
 		cost = 6
 		completion_reward = {
@@ -576,11 +579,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SRI_transformation_of_italian_society
+		id = SRI_the_moral_and_intellectual_reform
 		relative_position_id = SRI_in_a_time_of_monsters
 		prerequisite = { focus = SRI_in_a_time_of_monsters }
 		icon = GFX_focus_SWE_refuge_for_revolutionaries
-		x = 2
+		x = 3
 		y = 1
 		cost = 6
 		completion_reward = {
@@ -588,48 +591,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SRI_the_war_of_ideas
+		id = SRI_the_organic_party
 		relative_position_id = SRI_in_a_time_of_monsters
 		prerequisite = { focus = SRI_in_a_time_of_monsters }
-		x = 4
+		icon = GFX_goal_revolution_tools
+		x = 5
 		y = 1
-		icon = GFX_goal_Communist_Discourse
-		cost = 6
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = SRI_discipline_the_party_vanguard
-		relative_position_id = SRI_in_a_time_of_monsters
-		prerequisite = { focus = SRI_build_the_cadre_system }
-		icon = GFX_focus_NORDIC_com_capstone_materiel
-		x = -4
-		y = 3
-		cost = 6
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = SRI_a_mass_workers_party
-		relative_position_id = SRI_in_a_time_of_monsters
-		prerequisite = { focus = SRI_unite_worker_and_peasant }
-		x = -1
-		y = 2
-		icon = GFX_focus_PRC_revolutionary_war_of_the_masses
-		cost = 6
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = SRI_production_for_use_planning
-		relative_position_id = SRI_in_a_time_of_monsters
-		prerequisite = { focus = SRI_unite_worker_and_peasant }
-		icon = GFX_goal_social_reforms
-		x = 1
-		y = 2
 		cost = 6
 		completion_reward = {
 		}
@@ -640,8 +607,68 @@ focus_tree = {
 		relative_position_id = SRI_in_a_time_of_monsters
 		prerequisite = { focus = SRI_the_war_of_ideas }
 		icon = GFX_focus_ITA_corpo_volontari_della_liberta
-		x = 3
+		x = -4
 		y = 2
+		cost = 6
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = SRI_discipline_the_party_vanguard
+		relative_position_id = SRI_in_a_time_of_monsters
+		prerequisite = { focus = SRI_build_the_cadre_system }
+		icon = GFX_focus_NORDIC_com_capstone_materiel
+		x = -2
+		y = 2
+		cost = 6
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = SRI_a_mass_workers_party
+		relative_position_id = SRI_in_a_time_of_monsters
+		prerequisite = { focus = SRI_in_a_time_of_monsters }
+		icon = GFX_focus_PRC_revolutionary_war_of_the_masses
+		x = 0
+		y = 2
+		cost = 6
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = SRI_production_for_use_planning
+		relative_position_id = SRI_in_a_time_of_monsters
+		prerequisite = { focus = SRI_the_moral_and_intellectual_reform }
+		icon = GFX_goal_social_reforms
+		x = 2
+		y = 2
+		cost = 6
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = SRI_purity_and_militancy
+		relative_position_id = SRI_in_a_time_of_monsters
+		prerequisite = { focus = SRI_the_organic_party }
+		icon = GFX_focus_PRC_immediate_response_to_lack_of_army
+		x = 4
+		y = 2
+		cost = 6
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = SRI_workers_ethical_culture
+		relative_position_id = SRI_in_a_time_of_monsters
+		prerequisite = { focus = SRI_the_national_popular_revolution }
+		icon = GFX_goal_HOL_pillarization
+		x = -5
+		y = 3
 		cost = 6
 		completion_reward = {
 		}
@@ -650,10 +677,10 @@ focus_tree = {
 	focus = {
 		id = SRI_the_rational_administration_supreme
 		relative_position_id = SRI_in_a_time_of_monsters
-		prerequisite = { focus = SRI_build_the_cadre_system }
-		x = -3
-		y = 2
+		prerequisite = { focus = SRI_discipline_the_party_vanguard }
 		icon = GFX_focus_NORDIC_com_institution_2
+		x = -3
+		y = 3
 		cost = 6
 		completion_reward = {
 		}
@@ -664,7 +691,7 @@ focus_tree = {
 		relative_position_id = SRI_in_a_time_of_monsters
 		prerequisite = { focus = SRI_workers_education }
 		icon = GFX_focus_generic_socialist_science
-		x = -2
+		x = -1
 		y = 3
 		cost = 6
 		completion_reward = {
@@ -676,7 +703,7 @@ focus_tree = {
 		relative_position_id = SRI_in_a_time_of_monsters
 		prerequisite = { focus = SRI_unite_worker_and_peasant }
 		icon = GFX_goal_red_star_gold_wreath
-		x = 0
+		x = 1
 		y = 3
 		cost = 6
 		completion_reward = {
@@ -686,9 +713,9 @@ focus_tree = {
 	focus = {
 		id = SRI_the_education_revolution
 		relative_position_id = SRI_in_a_time_of_monsters
-		prerequisite = { focus = SRI_transformation_of_italian_society }
+		prerequisite = { focus = SRI_production_for_use_planning }
 		icon = GFX_focus_NOR_moscows_education_centers
-		x = 2
+		x = 3
 		y = 3
 		cost = 6
 		completion_reward = {
@@ -696,11 +723,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SRI_an_ethical_state
+		id = SRI_no_compromise_with_capital
 		relative_position_id = SRI_in_a_time_of_monsters
-		prerequisite = { focus = SRI_the_national_popular_revolution focus = SRI_the_modern_prince }
-		icon = GFX_goal_HOL_pillarization
-		x = 4
+		prerequisite = { focus = SRI_purity_and_militancy }
+		icon = GFX_focus_generic_central_planning
+		x = 5
 		y = 3
 		cost = 6
 		completion_reward = {
@@ -708,10 +735,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SRI_the_italian_road_to_socialism
+		id = SRI_the_modern_prince
 		relative_position_id = SRI_in_a_time_of_monsters
+		prerequisite = { focus = SRI_workers_ethical_culture }
 		prerequisite = { focus = SRI_the_rational_administration_supreme }
-		icon = GFX_focus_NORDIC_com_selector_civilian
+		icon = GFX_focus_RAJ_kingmaker
 		x = -3
 		y = 4
 		cost = 6
@@ -720,13 +748,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SRI_italian_council_of_labor
+		id = SRI_the_italian_road_to_socialism
 		relative_position_id = SRI_in_a_time_of_monsters
 		prerequisite = { focus = SRI_embrace_modernity }
-		prerequisite = { focus = SRI_socialist_cultural_hegemony }
-		prerequisite = { focus = SRI_discipline_the_party_vanguard focus = SRI_an_ethical_state }
-		icon = GFX_SRI_economic_miracle
-		x = 1
+		prerequisite = { focus = SRI_the_rational_administration_supreme }
+		icon = GFX_focus_NORDIC_com_selector_civilian
+		x = -1
 		y = 4
 		cost = 6
 		completion_reward = {
@@ -738,37 +765,22 @@ focus_tree = {
 		relative_position_id = SRI_in_a_time_of_monsters
 		prerequisite = { focus = SRI_socialist_cultural_hegemony }
 		prerequisite = { focus = SRI_the_education_revolution }
-		prerequisite = { focus = SRI_discipline_the_party_vanguard focus = SRI_an_ethical_state }
-		icon = GFX_goal_generic_revolutionary_government
-		x = -1
+		x = 1
 		y = 4
+		icon = GFX_goal_generic_revolutionary_government
 		cost = 6
 		completion_reward = {
 		}
 	}
 
 	focus = {
-		id = SRI_the_modern_prince
+		id = SRI_communism_against_democracy
 		relative_position_id = SRI_in_a_time_of_monsters
-		prerequisite = { focus = SRI_the_war_of_ideas}
-		icon = GFX_focus_RAJ_kingmaker
-		x = 5
-		y = 2
-		cost = 6
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = SRI_a_national_communist_party
-		relative_position_id = SRI_in_a_time_of_monsters
-		prerequisite = { focus = SRI_the_party_above_the_unions }
-		mutually_exclusive = {
-			focus = SRI_a_new_world_is_born
-		}
-		icon = GFX_SRI_irridentism
-		x = -1
-		y = 5
+		prerequisite = { focus = SRI_the_education_revolution }
+		prerequisite = { focus = SRI_no_compromise_with_capital }
+		icon = GFX_focus_GER_proletarian_dictatorship
+		x = 3
+		y = 4
 		cost = 6
 		completion_reward = {
 		}
@@ -777,23 +789,54 @@ focus_tree = {
 	focus = {
 		id = SRI_a_new_world_is_born
 		relative_position_id = SRI_in_a_time_of_monsters
-		prerequisite = { focus = SRI_italian_council_of_labor }
+		prerequisite = { focus = SRI_the_modern_prince }
 		mutually_exclusive = {
-			focus = SRI_a_national_communist_partys
+			focus = SRI_a_national_communist_party
+			focus = SRI_avanti_barbari
 		}
 		icon = GFX_focus_SOV_proclaim_soviet_hegemony
-		x = 1
+		x = -3
 		y = 5
 		cost = 6
 		completion_reward = {
-			set_party_name = {
-				ideology = radical_socialist
-				long_name = SRI_totalist_pcdi_party_long
-				name = SRI_totalist_pcdi_party
-			}
 		}
 	}
 
+	focus = {
+		id = SRI_a_national_communist_party
+		relative_position_id = SRI_in_a_time_of_monsters
+		prerequisite = { focus = SRI_the_italian_road_to_socialism }
+		prerequisite = { focus = SRI_the_party_above_the_unions }
+		mutually_exclusive = {
+			focus = SRI_a_new_world_is_born
+			focus = SRI_avanti_barbari
+		}
+		icon = GFX_SRI_irridentism
+		x = 0
+		y = 5
+		cost = 6
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = SRI_avanti_barbari
+		relative_position_id = SRI_in_a_time_of_monsters
+		prerequisite = { focus = SRI_communism_against_democracy }
+		mutually_exclusive = {
+			focus = SRI_a_new_world_is_born
+			focus = SRI_a_national_communist_party
+		}
+		icon = GFX_goal_generic_spreading_the_revolution
+		x = 3
+		y = 5
+		cost = 6
+		completion_reward = {
+		}
+	}
+
+	
+	
 	###	Syndie Path ###
 	focus = {
 		id = SRI_the_triumph_of_direct_action
@@ -807,7 +850,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = syndicalist
-			always = no
+			has_country_flag = SRI_path_decided
 		}
 		x = 0
 		y = 5
@@ -1073,7 +1116,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = totalist
-			always = no 
+			has_country_flag = SRI_path_decided
 		}
 		cost = 2
 		completion_reward = {
